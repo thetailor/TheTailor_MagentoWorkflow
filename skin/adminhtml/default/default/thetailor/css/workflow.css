@@ -1,0 +1,15 @@
+/* HEADINGS
+********************************************************************************************/
+
+/* Icon Head */ /* Headings with icon preceding text*/
+.head-adminhtml-workflow {
+	background-image: url(../images/fam_folder_database.gif);
+}
+
+/* FORMS
+*******************************************************************************/
+
+/* Form List */ /* Table for default form data */
+.form-list td.value p.note {
+	width: auto;
+}

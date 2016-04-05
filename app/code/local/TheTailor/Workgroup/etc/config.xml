@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <TheTailor_Workgroup>
+            <version>0.0.1</version>
+        </TheTailor_Workgroup>
+    </modules>
+     
+    <global>
+        <helpers>
+            <thetailor_workgroup>
+                <!-- This is where we define our helper directory -->
+                <class>TheTailor_Workgroup_Helper</class>
+            </thetailor_workgroup>
+        </helpers>
+                    
+        <blocks>
+            <thetailor_workgroup>
+                <!-- Set a block definition and lookup directory -->
+                <class>TheTailor_Workgroup_Block</class>
+            </thetailor_workgroup>
+        </blocks>
+         
+        <models>
+            <thetailor_workgroup>
+                <!-- This is where we define our model directory -->
+                <class>TheTailor_Workgroup_Model</class>
+                <!-- Define a resource to create a custom table -->
+                <resourceModel>thetailor_workgroup_mysql4</resourceModel>
+            </thetailor_workgroup>
+             
+            <!-- Here's our resource model we'll use to create a database table -->
+            <thetailor_workgroup_mysql4>
+                <class>TheTailor_Workgroup_Model_Mysql4</class>
+                <entities>
+                    <!-- Let's define our table, we'll call it with the workflow name, but the real table is thetailor_workgroup_workflow -->
+                    <!-- After we define our entity, we can call it with our model by calling thetailor_workgroup/workflow -->
+                    <workflow>
+                        <table>thetailor_workgroup_workflow</table>
+                    </workflow>
+                </entities>
+            </thetailor_workgroup_mysql4>
+        </models>
+         
+        <!-- And finally we define our resource setup script -->
+        <resources>
+            <thetailor_workgroup_setup>
+                <setup>
+                    <module>TheTailor_Workgroup</module>
+                </setup>
+            </thetailor_workgroup_setup>
+        </resources>
+    </global>
+     
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <!-- This is how we load our Adminhtml controllers -->
+                    <modules>
+                        <TheTailor_Workgroup before="Mage_Adminhtml">TheTailor_Workgroup_Adminhtml</TheTailor_Workgroup>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+     
+    <adminhtml>
+        <layout>
+            <updates>
+                <thetailor_workgroup>
+                    <!--
+                    We again keep a nice naming convention and make our module upgrade proof by placing it in a separate folder
+                    - Since we are in the adminhtml node, this will look for the XML file in the app/design/adminhtml/default/default root folder
+                    -->
+                    <file>thetailor/workgroup.xml</file>
+                </thetailor_workgroup>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <thetailor_workgroup>
+                    <files>
+                        <default>thetailor_workgroup.csv</default>
+                    </files>
+                </thetailor_workgroup>
+            </modules>
+        </translate>
+    </adminhtml>
+</config>

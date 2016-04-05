@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+		<reference name="head">
+			 <action method="addCss"><stylesheeet>thetailor/css/workflow.css</stylesheeet></action>      
+		</reference>
+    </default>
+    <!-- Here, we reference the XML node path of our route -->
+    <adminhtml_workflow_index>
+        <reference name="content">
+            <!-- We also reference our block by namespacename_modulename/adminhtml_controllername, and name it uniquely -->
+            <block type="thetailor_workgroup/adminhtml_workflow" name="thetailor_workgroup_workflow" />
+        </reference>
+    </adminhtml_workflow_index>
+</layout>

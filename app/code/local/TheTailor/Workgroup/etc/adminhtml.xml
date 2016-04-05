@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <!--
+        This item will be created in the Admin menu under Sales
+        - If you want another section, reference the appropriate adminhtml.xml file in app/code/core/Mage/Modulename/etc
+        - For example, we found out this was 'system' by referencing the config/menu node of app/code/core/Mage/System/etc/adminhtml.xml
+        -->
+        <system>
+            <children>
+                <!-- Here, I like to use the namespacename_modulename_controllername naming convention -->
+                <thetailor_workgroup_workflow translate="title" module="thetailor_workgroup">
+                    <!-- This is how the menu text will be displayed -->
+                    <title>Workflow</title>
+                    <!-- This is the URL of what we want the menu item to link to -->
+                    <action>adminhtml/workflow</action>
+                </thetailor_workgroup_workflow>
+            </children>
+        </system>
+    </menu>
+     
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <!-- Same as above, but instead of referencing the config/menu node, you reference the acl/resources node of adminhtml.xml-->
+                    <system>
+                        <children>
+                            <!-- Keep the same naming convention as above -->
+                            <thetailor_workgroup_workflow>
+                                <!-- This is how the ACL text will be displayed on System > Permissions > Roles > Role > Role Resources -->
+                                <title>Workflow</title>
+                            </thetailor_workgroup_workflow>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
